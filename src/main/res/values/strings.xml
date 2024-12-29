@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">DRIVIT_V2_FrontEnd</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_cars">Cars</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_Logout">Logout</string>
+
+
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+</resources>

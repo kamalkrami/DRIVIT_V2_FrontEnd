@@ -1,0 +1,64 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DRIVIT_V2_FrontEnd" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowContentTransitions">true</item>
+        
+        <item name="android:navigationBarColor">@color/bleu_1</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        
+        <item name="android:statusBarColor">@color/bleu_2</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorPrimary">@color/bleu_2</item>
+
+    </style>
+    
+    <style name="Theme.Navigation" parent="Base.Theme.DRIVIT_V2_FrontEnd">
+        <item name="colorControlHighlight">@android:color/transparent</item>
+    </style>
+    
+    
+    <style name="Theme.DRIVIT_V2_FrontEnd" parent="Base.Theme.DRIVIT_V2_FrontEnd" />
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+         <item name="android:color">@color/bleu_2</item>
+    </style>
+
+    <style name="mytoastinfo">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stTextSize">12sp</item>
+        <item name="stColorBackground">@color/bleu_1</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">@color/white</item>
+        <item name="stIconStart">@drawable/outline_info_white</item>
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="mytoastdone">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stTextSize">12sp</item>
+        <item name="stColorBackground">@color/green</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">@color/white</item>
+        <item name="stIconStart">@drawable/check_circle</item>
+        <item name="stRadius">5dp</item>
+    </style>
+
+    <style name="mytoasterror">
+        <item name="stTextBold">true</item>
+        <item name="stTextColor">@color/white</item>
+        <item name="stTextSize">12sp</item>
+        <item name="stColorBackground">@color/red</item>
+        <item name="stSolidBackground">true</item>
+        <item name="stStrokeWidth">3dp</item>
+        <item name="stStrokeColor">@color/white</item>
+        <item name="stIconStart">@drawable/cancel</item>
+        <item name="stRadius">5dp</item>
+    </style>
+</resources>
