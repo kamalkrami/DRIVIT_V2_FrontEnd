@@ -18,6 +18,7 @@ public class Users implements Serializable {
     public Users() {
     }
     public Users(String userID,String firstName, String lastName, String userName, String passWord, String cin, String email, String phone, UserType status) {
+        this.userID = userID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -26,6 +27,14 @@ public class Users implements Serializable {
         this.email = email;
         this.phone = phone;
         this.status = status;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getFirstName() {

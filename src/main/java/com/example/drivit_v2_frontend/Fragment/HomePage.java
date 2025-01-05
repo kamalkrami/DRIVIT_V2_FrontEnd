@@ -19,9 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.drivit_v2_frontend.Activitys.LoginPage;
 import com.example.drivit_v2_frontend.R;
-import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapter;
+import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapterHomePage;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.enums.Status_add;
 import com.example.drivit_v2_frontend.enums.Status_dispo;
@@ -41,7 +40,7 @@ import io.github.muddz.styleabletoast.StyleableToast;
 public class HomePage extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecylerViewAdapter adapter;
+    private RecylerViewAdapterHomePage adapter;
     ArrayList<Cars> carList;
 
     TextView hello_name;
@@ -75,13 +74,13 @@ public class HomePage extends Fragment {
 
         recyclerView=rootView.findViewById(R.id.rv_1);
         carList = new ArrayList<Cars>();
-        adapter = new RecylerViewAdapter(requireActivity(),carList);
+        adapter = new RecylerViewAdapterHomePage(requireActivity(),carList);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
 
         // BackEnd
         final String port = "8888";
-        final String ip_address = "192.168.11.113";
+        final String ip_address = getString(R.string.ip_address);
         final String baseUrl = "http://" + ip_address + ":" + port + "/CAR-SERVICES";
 
         String url = baseUrl + "/cars/dispo/AVAILABLE/ACCEPTED";

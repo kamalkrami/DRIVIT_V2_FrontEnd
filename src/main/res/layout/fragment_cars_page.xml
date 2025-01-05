@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.CarsPage">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="212dp"
-        android:layout_height="wrap_content"
-        android:text="Cars Page"
-        android:textSize="34sp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="100dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_carpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp" />
 
 </FrameLayout>

@@ -1,6 +1,10 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+
+val ip_address = gradleLocalProperties(rootDir,providers).getProperty("ip_address","")
 
 android {
     namespace = "com.example.drivit_v2_frontend"
@@ -14,6 +18,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        resValue(
+            "string",
+            "ip_address",
+            "\"" + ip_address + "\""
+        )
     }
 
     buildTypes {
@@ -32,6 +42,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.github.bumptech.glide:glide:4.15.0")
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -57,7 +57,7 @@ public class SignUpPage extends AppCompatActivity {
 
         // BackEnd Data
         final String port = "8888";
-        final String ip_address = "192.168.11.113";
+        final String ip_address = getString(R.string.ip_address);
         final String baseUrl = "http://" + ip_address + ":" + port + "/USERS-SERVICES";
 
         // Call Login Page

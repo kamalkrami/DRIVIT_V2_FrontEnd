@@ -89,13 +89,13 @@
             android:id="@+id/btn_signIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:text="GO"
-            android:textColor="#fff"
-            android:elevation="0dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:transitionName="btn_signIn"/>
+            android:background="@drawable/bg_button"
+            android:elevation="0dp"
+            android:text="GO"
+            android:textColor="#fff"
+            android:transitionName="btn_signIn" />
 
         <Button
             android:id="@+id/btn_signUp"

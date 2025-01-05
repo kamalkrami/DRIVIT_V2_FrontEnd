@@ -65,16 +65,30 @@
                 android:id="@+id/id_text_model_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:text="Car Details"
                 android:textColor="#666666"
                 android:textSize="14sp"
-                app:layout_constraintVertical_bias="0.1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/id_text_carName" />
+                app:layout_constraintTop_toBottomOf="@+id/id_text_carName"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <!-- TextView for Car Details -->
+            <TextView
+                android:id="@+id/id_text_model_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Car Status"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_text_model_details" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,9 @@ import android.net.Uri;
 import com.example.drivit_v2_frontend.enums.Status_add;
 import com.example.drivit_v2_frontend.enums.Status_dispo;
 
-public class Cars {
+import java.io.Serializable;
+
+public class Cars implements Serializable {
     private String id_car;
     private Users users;
     private String id_user;
