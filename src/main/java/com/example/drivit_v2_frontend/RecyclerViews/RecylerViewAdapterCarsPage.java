@@ -14,11 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.drivit_v2_frontend.Fragment.DetailCarPage;
-import com.example.drivit_v2_frontend.Fragment.UserCarDetailPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.UserCarDetailPage;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.models.CarRental;
-import com.example.drivit_v2_frontend.models.Cars;
 
 import java.util.ArrayList;
 

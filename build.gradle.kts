@@ -5,6 +5,9 @@ plugins {
 }
 
 val ip_address = gradleLocalProperties(rootDir,providers).getProperty("ip_address","")
+val cloud_name = gradleLocalProperties(rootDir,providers).getProperty("cloud_name","")
+val api_key = gradleLocalProperties(rootDir,providers).getProperty("api_key","")
+val api_secret = gradleLocalProperties(rootDir,providers).getProperty("api_secret","")
 
 android {
     namespace = "com.example.drivit_v2_frontend"
@@ -24,6 +27,21 @@ android {
             "ip_address",
             "\"" + ip_address + "\""
         )
+        resValue(
+            "string",
+            "cloud_name",
+            "\"" + cloud_name + "\""
+        )
+        resValue(
+            "string",
+            "api_key",
+            "\"" + api_key + "\""
+        )
+        resValue(
+            "string",
+            "api_secret",
+            "\"" + api_secret + "\""
+        )
     }
 
     buildTypes {
@@ -42,6 +60,7 @@ android {
 }
 
 dependencies {
+    implementation("com.cloudinary:cloudinary-android:3.0.2")
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("com.github.bumptech.glide:glide:4.15.0")
     implementation(libs.appcompat)

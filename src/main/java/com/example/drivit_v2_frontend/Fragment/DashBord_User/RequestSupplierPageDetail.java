@@ -1,11 +1,10 @@
-package com.example.drivit_v2_frontend.Fragment;
+package com.example.drivit_v2_frontend.Fragment.DashBord_User;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.drivit_v2_frontend.Activitys.LoginPage;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_USER;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.models.RequestSupplier;
@@ -28,7 +25,6 @@ import org.json.JSONObject;
 import io.github.muddz.styleabletoast.StyleableToast;
 
 public class RequestSupplierPageDetail extends Fragment {
-
     Button btn_cancel_request_supplier, btn_goback;
     TextView requist_status;
 

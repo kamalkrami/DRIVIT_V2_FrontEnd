@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.drivit_v2_frontend.Fragment.DetailCarPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.DetailCarPage;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.models.Cars;
 

@@ -23,11 +23,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.drivit_v2_frontend.Activitys.LoginPage;
-import com.example.drivit_v2_frontend.Fragment.CarsPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.CarsPage;
 import com.example.drivit_v2_frontend.Fragment.HomePage;
-import com.example.drivit_v2_frontend.Fragment.RequestSupplierPage;
-import com.example.drivit_v2_frontend.Fragment.RequestSupplierPageDetail;
-import com.example.drivit_v2_frontend.Fragment.UserProfilePage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.RequestSupplierPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.RequestSupplierPageDetail;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.UserProfilePage;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.enums.Status_Request_Supplier;
@@ -59,13 +59,9 @@ public class DashBoard_USER extends AppCompatActivity implements NavigationView.
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_dash_board_user);
 
-
-
         /*full_name = findViewById(R.layout.nav_header).findViewById(R.id.full_name);
         full_name_details = findViewById(R.layout.nav_header).findViewById(R.id.full_name_details);
         imageView = findViewById(R.layout.nav_header).findViewById(R.id.user_image);*/
-
-
 
         /*full_name.setText(_firstName+" "+_lastName);
         full_name_details.setText(_firstName+" "+_lastName);*/

@@ -1,4 +1,4 @@
-package com.example.drivit_v2_frontend.Fragment;
+package com.example.drivit_v2_frontend.Fragment.DashBord_User;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,7 +16,6 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.example.drivit_v2_frontend.Activitys.LoginPage;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_USER;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;

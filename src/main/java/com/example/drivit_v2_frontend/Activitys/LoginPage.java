@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.drivit_v2_frontend.DashBoards.DashBoard_SUPPLIER;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_USER;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
@@ -135,7 +136,7 @@ public class LoginPage extends AppCompatActivity {
                                             if (status_user.equals("USER")) {
                                                 startActivity(new Intent(getApplicationContext(), DashBoard_USER.class));
                                             } else if (status_user.equals("SUPPLIER")) {
-                                                System.out.println("SUPPLIER");
+                                                startActivity(new Intent(getApplicationContext(), DashBoard_SUPPLIER.class));
                                             } else if (status_user.equals("ADMIN")) {
                                                 System.out.println("ADMIN");
                                             } else {

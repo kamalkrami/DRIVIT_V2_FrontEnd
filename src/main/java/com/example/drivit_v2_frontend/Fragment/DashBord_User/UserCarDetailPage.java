@@ -1,4 +1,4 @@
-package com.example.drivit_v2_frontend.Fragment;
+package com.example.drivit_v2_frontend.Fragment.DashBord_User;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,6 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -23,7 +20,6 @@ import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.enums.Status_dispo;
 import com.example.drivit_v2_frontend.enums.UserType;
 import com.example.drivit_v2_frontend.models.CarRental;
-import com.example.drivit_v2_frontend.models.Cars;
 import com.example.drivit_v2_frontend.models.Users;
 
 import org.json.JSONException;

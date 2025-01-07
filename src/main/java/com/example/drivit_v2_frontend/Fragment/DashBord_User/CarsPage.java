@@ -1,4 +1,4 @@
-package com.example.drivit_v2_frontend.Fragment;
+package com.example.drivit_v2_frontend.Fragment.DashBord_User;
 
 import android.os.Bundle;
 
@@ -17,11 +17,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapterCarsPage;
-import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapterHomePage;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.enums.Status_add;
 import com.example.drivit_v2_frontend.enums.Status_dispo;

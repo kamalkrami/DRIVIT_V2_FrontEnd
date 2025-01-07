@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single" >
+        <item
+            android:id="@+id/Home"
+            android:icon="@drawable/home"
+            android:title="@string/title_home"
+            android:checked="true"/>
+
+        <item
+            android:id="@+id/MyCars"
+            android:icon="@drawable/car_rental"
+            android:title="My Cars"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/AddCar"
+            android:icon="@drawable/car"
+            android:title="Add Car"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/RentedCars"
+            android:icon="@drawable/supplier_role"
+            android:title="Rented Cars"
+            tools:ignore="HardcodedText" />
+
+        <item
+            android:id="@+id/Profile"
+            android:icon="@drawable/user_circle"
+            android:title="@string/title_profile" />
+
+        <item
+            android:id="@+id/Logout"
+            android:icon="@drawable/logout_24"
+            android:title="@string/title_Logout" />
+
+    </group>
+
+</menu>
