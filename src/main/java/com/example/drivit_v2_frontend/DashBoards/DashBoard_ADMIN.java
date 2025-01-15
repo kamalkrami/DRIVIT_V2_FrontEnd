@@ -14,21 +14,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 
 import com.example.drivit_v2_frontend.Activitys.LoginPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Admin.AllCarsPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Admin.AllNewAddCars;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Admin.AllUsersPage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.AddCarPage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.RentedCarsPage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.SupplierCarsPage;
-import com.example.drivit_v2_frontend.Fragment.HomePage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_User.UserProfilePage;
+import com.example.drivit_v2_frontend.Fragment.HomePage;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.HashMap;
 
-public class DashBoard_SUPPLIER extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class DashBoard_ADMIN extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -41,7 +43,7 @@ public class DashBoard_SUPPLIER extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_dash_board_supplier);
+        setContentView(R.layout.activity_dash_bord_admin);
 
         /*full_name = findViewById(R.layout.nav_header).findViewById(R.id.full_name);
         full_name_details = findViewById(R.layout.nav_header).findViewById(R.id.full_name_details);
@@ -91,20 +93,23 @@ public class DashBoard_SUPPLIER extends AppCompatActivity implements NavigationV
         if (item.getItemId() == R.id.Home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new HomePage()).commit();
             text_Menu.setText("Menu Home");
-        } else if (item.getItemId() == R.id.MyCars) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new SupplierCarsPage()).commit();
-            text_Menu.setText("Menu My Cars");
-        } else if (item.getItemId() == R.id.AddCar) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new AddCarPage()).commit();
-            text_Menu.setText("Menu Add Car");
-        } else if (item.getItemId() == R.id.RentedCars) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new RentedCarsPage()).commit();
-            text_Menu.setText("Menu Rented Cars");
+        } else if (item.getItemId() == R.id.AllUsers) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new AllUsersPage()).commit();
+            text_Menu.setText("Menu All Users");
+        } else if (item.getItemId() == R.id.AllCars) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new AllCarsPage()).commit();
+            text_Menu.setText("Menu All Car");
+        } else if (item.getItemId() == R.id.AllNewCars){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new AllNewAddCars()).commit();
+            text_Menu.setText("Menu New Cars");
+        } else if (item.getItemId() == R.id.AddUser) {
+            // Work to do
+            text_Menu.setText("Menu Add User");
         } else if (item.getItemId() == R.id.Profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new UserProfilePage()).commit();
             text_Menu.setText("Menu Profile");
         } else if (item.getItemId() == R.id.Logout) {
-            startActivity(new Intent(DashBoard_SUPPLIER.this, LoginPage.class));
+            startActivity(new Intent(DashBoard_ADMIN.this, LoginPage.class));
             sessionManager.logoutUserFromSession();
             finish();
         }
@@ -120,5 +125,4 @@ public class DashBoard_SUPPLIER extends AppCompatActivity implements NavigationV
             super.onBackPressed();
         }
     }
-
 }

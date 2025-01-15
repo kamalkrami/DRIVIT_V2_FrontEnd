@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.drivit_v2_frontend.DashBoards.DashBoard_ADMIN;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_SUPPLIER;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_USER;
 import com.example.drivit_v2_frontend.R;
@@ -138,7 +139,7 @@ public class LoginPage extends AppCompatActivity {
                                             } else if (status_user.equals("SUPPLIER")) {
                                                 startActivity(new Intent(getApplicationContext(), DashBoard_SUPPLIER.class));
                                             } else if (status_user.equals("ADMIN")) {
-                                                System.out.println("ADMIN");
+                                                startActivity(new Intent(getApplicationContext(), DashBoard_ADMIN.class));
                                             } else {
                                                 //Toast.makeText(LoginPage.this, "Failed To Auth User", Toast.LENGTH_LONG).show();
                                                 StyleableToast.makeText(LoginPage.this, "Failed To Auth User", Toast.LENGTH_SHORT, R.style.mytoasterror).show();

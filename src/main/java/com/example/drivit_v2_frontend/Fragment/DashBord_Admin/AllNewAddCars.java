@@ -1,4 +1,4 @@
-package com.example.drivit_v2_frontend.Fragment;
+package com.example.drivit_v2_frontend.Fragment.DashBord_Admin;
 
 import android.os.Bundle;
 
@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,8 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.drivit_v2_frontend.R;
-import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapterHomePage;
-import com.example.drivit_v2_frontend.Sessions.SessionManager;
+import com.example.drivit_v2_frontend.RecyclerViews.RecylerViewAdapterSupplierCarsPage;
 import com.example.drivit_v2_frontend.enums.Status_add;
 import com.example.drivit_v2_frontend.enums.Status_dispo;
 import com.example.drivit_v2_frontend.enums.UserType;
@@ -33,19 +31,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
-public class HomePage extends Fragment {
+public class AllNewAddCars extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecylerViewAdapterHomePage adapter;
+    private RecylerViewAdapterSupplierCarsPage adapter;
     ArrayList<Cars> carList;
 
-    TextView hello_name;
-
-    public HomePage() {
+    public AllNewAddCars() {
         // Required empty public constructor
     }
 
@@ -53,28 +48,11 @@ public class HomePage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  rootView =  inflater.inflate(R.layout.fragment_home_page, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_all_new_add_cars, container, false);
 
-        SessionManager sessionManager = new SessionManager(getActivity());
-        HashMap<String,String> userDetails = sessionManager.getUserDetailFromSession();
-
-        String _userID = userDetails.get(SessionManager.KEY_ID);
-        String _firstName = userDetails.get(SessionManager.KEY_FIRSTNAME);
-        String _lastName = userDetails.get(SessionManager.KEY_LASTNAME);
-        String _email = userDetails.get(SessionManager.KEY_EMAIL);
-        String _cin = userDetails.get(SessionManager.KEY_CIN);
-        String _phone = userDetails.get(SessionManager.KEY_PHONE);
-        String _userName = userDetails.get(SessionManager.KEY_USERNAME);
-        String _passWord = userDetails.get(SessionManager.KEY_PASSWORD);
-        String _status_user = userDetails.get(SessionManager.KEY_STATUS);
-
-        hello_name = rootView.findViewById(R.id.hello_name);
-        hello_name.setText(_firstName+" "+_lastName);
-
-
-        recyclerView=rootView.findViewById(R.id.rv_1);
+        recyclerView=rootView.findViewById(R.id.rv_supplier_all_car_page);
         carList = new ArrayList<Cars>();
-        adapter = new RecylerViewAdapterHomePage(requireActivity(),carList);
+        adapter = new RecylerViewAdapterSupplierCarsPage(requireActivity(),carList);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(adapter);
 
@@ -83,7 +61,7 @@ public class HomePage extends Fragment {
         final String ip_address = getString(R.string.ip_address);
         final String baseUrl = "http://" + ip_address + ":" + port + "/CAR-SERVICES";
 
-        String url = baseUrl + "/cars/dispo/AVAILABLE/ACCEPTED";
+        String url = baseUrl + "/cars/dispo/AVAILABLE/PENDING";
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
 
@@ -129,6 +107,7 @@ public class HomePage extends Fragment {
                             adapter.notifyDataSetChanged(); // Notify adapter about data changes
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            // Toast.makeText(requireActivity(), "Error parsing data", Toast.LENGTH_SHORT).show();
                             StyleableToast.makeText(requireActivity(), "Error parsing data", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
 
                         }
@@ -142,7 +121,6 @@ public class HomePage extends Fragment {
                         StyleableToast.makeText(requireActivity(), "Failed to fetch data", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                     }
                 });
-
         queue.add(jsonArrayRequest);
 
         return rootView;

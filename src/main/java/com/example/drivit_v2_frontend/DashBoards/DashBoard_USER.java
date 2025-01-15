@@ -118,6 +118,7 @@ public class DashBoard_USER extends AppCompatActivity implements NavigationView.
         } else if (item.getItemId() == R.id.Logout) {
             startActivity(new Intent(DashBoard_USER.this, LoginPage.class));
             sessionManager.logoutUserFromSession();
+            finish();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;

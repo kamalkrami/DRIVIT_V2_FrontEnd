@@ -29,6 +29,7 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.example.drivit_v2_frontend.Cloudinary.MediaManagerState;
+import com.example.drivit_v2_frontend.DashBoards.DashBoard_ADMIN;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_SUPPLIER;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_USER;
 import com.example.drivit_v2_frontend.R;
@@ -174,7 +175,7 @@ public class AddCarPage extends Fragment {
             carJson.put("statusAdd", Status_add.PENDING.toString());
 
             // Send the request
-            sendCarRequest(carJson);
+            sendCarRequest(carJson,users);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -182,7 +183,7 @@ public class AddCarPage extends Fragment {
         }
     }
 
-    private void sendCarRequest(JSONObject carJson) {
+    private void sendCarRequest(JSONObject carJson,Users users) {
         // BackEnd Data
         final String port = "8888";
         final String ip_address = getString(R.string.ip_address);
@@ -198,8 +199,13 @@ public class AddCarPage extends Fragment {
 
                         if (status == 201) { // Success
                             StyleableToast.makeText(requireActivity(), message, Toast.LENGTH_SHORT, R.style.mytoastdone).show();
-                            Intent intent = new Intent(requireActivity(), DashBoard_SUPPLIER.class);
-                            startActivity(intent);
+                            if(users.getStatus() == UserType.SUPPLIER){
+                                Intent intent = new Intent(requireActivity(), DashBoard_SUPPLIER.class);
+                                startActivity(intent);
+                            } else if (users.getStatus() == UserType.ADMIN) {
+                                Intent intent = new Intent(requireActivity(), DashBoard_ADMIN.class);
+                                startActivity(intent);
+                            }
                         } else { // Other statuses
                             StyleableToast.makeText(requireActivity(), "Error: " + message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                         }
@@ -282,7 +288,6 @@ public class AddCarPage extends Fragment {
                     }
                 }
             });
-
 
     private boolean validateCarName() {
         String value = carName.getEditText().getText().toString().trim();

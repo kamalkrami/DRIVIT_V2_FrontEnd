@@ -26,6 +26,7 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.example.drivit_v2_frontend.Cloudinary.MediaManagerState;
+import com.example.drivit_v2_frontend.DashBoards.DashBoard_ADMIN;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_SUPPLIER;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
@@ -108,9 +109,15 @@ public class EditCarPage extends AppCompatActivity {
         btn_goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditCarPage.this, DashBoard_SUPPLIER.class);
-                startActivity(intent);
-                finish();
+                if(users.getStatus() == UserType.SUPPLIER){
+                    Intent intent = new Intent(EditCarPage.this, DashBoard_SUPPLIER.class);
+                    startActivity(intent);
+                    finish();
+                } else if (users.getStatus() == UserType.ADMIN) {
+                    Intent intent = new Intent(EditCarPage.this, DashBoard_ADMIN.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -187,7 +194,7 @@ public class EditCarPage extends AppCompatActivity {
             carJson.put("statusAdd", Status_add.PENDING.toString());
 
             // Send the request
-            sendCarRequest(carJson);
+            sendCarRequest(carJson,users);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -195,7 +202,7 @@ public class EditCarPage extends AppCompatActivity {
         }
     }
 
-    private void sendCarRequest(JSONObject carJson) {
+    private void sendCarRequest(JSONObject carJson,Users users) {
         // BackEnd Data
         final String port = "8888";
         final String ip_address = getString(R.string.ip_address);
@@ -211,8 +218,13 @@ public class EditCarPage extends AppCompatActivity {
 
                         if (status == 201) { // Success
                             StyleableToast.makeText(EditCarPage.this, message, Toast.LENGTH_SHORT, R.style.mytoastdone).show();
-                            Intent intent = new Intent(EditCarPage.this, DashBoard_SUPPLIER.class);
-                            startActivity(intent);
+                            if(users.getStatus() == UserType.SUPPLIER){
+                                Intent intent = new Intent(EditCarPage.this, DashBoard_SUPPLIER.class);
+                                startActivity(intent);
+                            } else if (users.getStatus() == UserType.ADMIN) {
+                                Intent intent = new Intent(EditCarPage.this, DashBoard_ADMIN.class);
+                                startActivity(intent);
+                            }
                         } else { // Other statuses
                             StyleableToast.makeText(EditCarPage.this, "Error: " + message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                         }
@@ -295,7 +307,6 @@ public class EditCarPage extends AppCompatActivity {
                     }
                 }
             });
-
 
     private boolean validateCarName() {
         String value = carName.getEditText() != null ? carName.getEditText().getText().toString().trim() : "";

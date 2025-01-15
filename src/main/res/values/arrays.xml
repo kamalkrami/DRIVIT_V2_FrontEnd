@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="role_options_list" >
+        <item>Admin</item>
+        <item>Supplier</item>
+        <item>User</item>
+    </string-array>
+
+</resources>

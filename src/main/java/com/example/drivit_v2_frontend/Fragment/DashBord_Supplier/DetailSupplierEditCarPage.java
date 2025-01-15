@@ -11,6 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.drivit_v2_frontend.DashBoards.DashBoard_ADMIN;
 import com.example.drivit_v2_frontend.DashBoards.DashBoard_SUPPLIER;
 import com.example.drivit_v2_frontend.R;
 import com.example.drivit_v2_frontend.Sessions.SessionManager;
@@ -85,9 +86,15 @@ public class DetailSupplierEditCarPage extends AppCompatActivity {
         btn_goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailSupplierEditCarPage.this, DashBoard_SUPPLIER.class);
-                startActivity(intent);
-                finish();
+                if(users.getStatus() == UserType.SUPPLIER){
+                    Intent intent = new Intent(DetailSupplierEditCarPage.this, DashBoard_SUPPLIER.class);
+                    startActivity(intent);
+                    finish();
+                } else if (users.getStatus() == UserType.ADMIN) {
+                    Intent intent = new Intent(DetailSupplierEditCarPage.this, DashBoard_ADMIN.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }

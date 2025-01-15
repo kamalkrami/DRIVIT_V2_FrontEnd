@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Fragment.DashBord_Admin.DetailAdminEditCarPage"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.DashBord_Admin.EditUserPage"
+            android:exported="false" />
+        <activity
+            android:name=".DashBoards.DashBoard_ADMIN"
+            android:exported="false" />
+        <activity
             android:name=".Fragment.DashBord_Supplier.EditCarPage"
             android:exported="false" />
         <activity

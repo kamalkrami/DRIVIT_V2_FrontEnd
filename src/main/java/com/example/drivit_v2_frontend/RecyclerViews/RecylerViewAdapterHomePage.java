@@ -67,14 +67,12 @@ public class RecylerViewAdapterHomePage extends RecyclerView.Adapter<RecylerView
                         context.startActivity(intent_user);
                         break;
                     case "SUPPLIER":
+                    case "ADMIN":
                         Intent intent_supplier = new Intent(context, DetailSupplierHomeCarPage.class);
                         Bundle bundle_supplier = new Bundle();
                         bundle_supplier.putSerializable("carsItem", carsItem);
                         intent_supplier.putExtras(bundle_supplier);
                         context.startActivity(intent_supplier);
-                        break;
-                    case "ADMIN":
-                        //Work To do
                         break;
                 }
             }
@@ -89,7 +87,6 @@ public class RecylerViewAdapterHomePage extends RecyclerView.Adapter<RecylerView
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView carName,carDetails,carStatus;
         ImageView imageView;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             carName = itemView.findViewById(R.id.id_text_carName);

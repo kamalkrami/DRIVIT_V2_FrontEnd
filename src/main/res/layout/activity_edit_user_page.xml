@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.DashBord_User.UserProfilePage"
-    android:layout_marginTop="0dp">
+    tools:context=".Fragment.DashBord_Admin.EditUserPage">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,63 +56,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-45dp"
-            android:padding="20dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="125dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/bleu_2"
-                app:cardElevation="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/car_white" />
-
-                    <TextView
-                        android:id="@+id/rental_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/bungee"
-                        android:includeFontPadding="false"
-                        android:text="10"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"/>
-
-                    <TextView
-                        android:id="@+id/rental_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rental_label"
-                        android:layout_centerHorizontal="true"
-                        android:includeFontPadding="false"
-                        android:text="Car Rental"
-                        android:textSize="20sp"
-                        android:textColor="@color/white"/>
-
-                </RelativeLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
             android:orientation="vertical"
-            android:layout_marginTop="-20dp"
             android:padding="20dp">
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/role_select"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="User Role">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/user"
+                    android:drawablePadding="10dp"
+                    android:inputType="none"
+                    app:simpleItems="@array/role_options_list" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/firstName"
@@ -127,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/user"
                     android:drawablePadding="10dp"
-                    android:text="First name"/>
+                    android:text="First name" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -145,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/user"
                     android:drawablePadding="10dp"
-                    android:text="Last name"/>
+                    android:text="Last name" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -164,6 +129,25 @@
                     android:drawableLeft="@drawable/user"
                     android:drawablePadding="10dp"
                     android:text="name@gamil.com" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="CIN">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/user"
+                    android:drawablePadding="10dp"
+                    android:inputType="text"
+                    android:text="CDxxxxxx" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -209,8 +193,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                app:passwordToggleEnabled="true"
-                android:hint="Password">
+                android:hint="Password"
+                app:passwordToggleEnabled="true">
 
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -228,13 +212,25 @@
                 android:id="@+id/btn_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bg_button"
                 android:fontFamily="@font/bungee"
-                android:text="Update"
-                android:layout_marginTop="20dp"/>
+                android:text="Update" />
+
+            <Button
+                android:id="@+id/btn_go_back"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:layout_gravity="center"
+                android:elevation="0dp"
+                android:layout_margin="5dp"
+                android:text="Go Back ?"
+                android:textColor="#000"
+                android:transitionName="btn_signUp"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
