@@ -34,7 +34,7 @@ import java.util.HashMap;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
-public class DetailCarPage extends AppCompatActivity {
+public class DetailUserCarPage extends AppCompatActivity {
     ImageView image_car;
     TextView car_name,car_detail,car_status;
     Button btn_rental,btn_goback;
@@ -105,7 +105,7 @@ public class DetailCarPage extends AppCompatActivity {
                     userJson.put("statusRental", Status_rental.PENDING.name());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    StyleableToast.makeText(DetailCarPage.this, "Error creating JSON", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                    StyleableToast.makeText(DetailUserCarPage.this, "Error creating JSON", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                     return;
                 }
 
@@ -120,19 +120,19 @@ public class DetailCarPage extends AppCompatActivity {
 
                                 switch (status) {
                                     case 200: // Success
-                                        StyleableToast.makeText(DetailCarPage.this, message, Toast.LENGTH_SHORT, R.style.mytoastdone).show();
-                                        Intent intent = new Intent(DetailCarPage.this, DashBoard_USER.class);
+                                        StyleableToast.makeText(DetailUserCarPage.this, message, Toast.LENGTH_SHORT, R.style.mytoastdone).show();
+                                        Intent intent = new Intent(DetailUserCarPage.this, DashBoard_USER.class);
                                         startActivity(intent);
                                         finish();
                                         break;
 
                                     default: // Other unexpected statuses
-                                        StyleableToast.makeText(DetailCarPage.this, "Error: " + message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                                        StyleableToast.makeText(DetailUserCarPage.this, "Error: " + message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                                         break;
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                StyleableToast.makeText(DetailCarPage.this, "Unexpected response from server", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                                StyleableToast.makeText(DetailUserCarPage.this, "Unexpected response from server", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                             }
                         },
                         error -> {
@@ -143,18 +143,18 @@ public class DetailCarPage extends AppCompatActivity {
                                 try {
                                     JSONObject errorResponse = new JSONObject(responseBody);
                                     String message = errorResponse.getString("msg");
-                                    StyleableToast.makeText(DetailCarPage.this, message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                                    StyleableToast.makeText(DetailUserCarPage.this, message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
-                                    StyleableToast.makeText(DetailCarPage.this, "Error parsing error response", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                                    StyleableToast.makeText(DetailUserCarPage.this, "Error parsing error response", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                                 }
                             } else {
-                                StyleableToast.makeText(DetailCarPage.this, "Network error. Please check your connection.", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
+                                StyleableToast.makeText(DetailUserCarPage.this, "Network error. Please check your connection.", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                             }
                         });
 
                 // Add the request to the Volley queue
-                Volley.newRequestQueue(DetailCarPage.this).add(request);
+                Volley.newRequestQueue(DetailUserCarPage.this).add(request);
             }
         });
 
@@ -162,7 +162,7 @@ public class DetailCarPage extends AppCompatActivity {
         btn_goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailCarPage.this, DashBoard_USER.class);
+                Intent intent = new Intent(DetailUserCarPage.this, DashBoard_USER.class);
                 startActivity(intent);
                 finish();
             }
@@ -172,7 +172,7 @@ public class DetailCarPage extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(DetailCarPage.this, DashBoard_USER.class);
+        Intent intent = new Intent(DetailUserCarPage.this, DashBoard_USER.class);
         startActivity(intent);
         finish();
     }

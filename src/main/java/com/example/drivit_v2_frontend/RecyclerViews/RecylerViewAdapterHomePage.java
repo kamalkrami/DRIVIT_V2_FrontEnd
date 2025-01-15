@@ -11,23 +11,28 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.drivit_v2_frontend.Fragment.DashBord_User.DetailCarPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.DetailSupplierHomeCarPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_User.DetailUserCarPage;
 import com.example.drivit_v2_frontend.R;
+import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.models.Cars;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RecylerViewAdapterHomePage extends RecyclerView.Adapter<RecylerViewAdapterHomePage.ViewHolder> {
 
     Context context;
     ArrayList<Cars> arrayList;
+    SessionManager sessionManager;
 
     public RecylerViewAdapterHomePage(Context context, ArrayList<Cars> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        this.sessionManager = new SessionManager(this.context);
     }
 
     @NonNull
@@ -46,14 +51,32 @@ public class RecylerViewAdapterHomePage extends RecyclerView.Adapter<RecylerView
         holder.carName.setText(carsItem.getCarName());
         holder.carDetails.setText("Price :\n" + carsItem.getCarPrix() + " Dhs.");
         holder.carStatus.setText(String.valueOf(carsItem.getStatusDipo()));
+
+        HashMap<String,String> userDetails = sessionManager.getUserDetailFromSession();
+        String _status_user = userDetails.get(SessionManager.KEY_STATUS);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetailCarPage.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("carsItem",carsItem);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                switch (_status_user) {
+                    case "USER":
+                        Intent intent_user = new Intent(context, DetailUserCarPage.class);
+                        Bundle bundle_user = new Bundle();
+                        bundle_user.putSerializable("carsItem",carsItem);
+                        intent_user.putExtras(bundle_user);
+                        context.startActivity(intent_user);
+                        break;
+                    case "SUPPLIER":
+                        Intent intent_supplier = new Intent(context, DetailSupplierHomeCarPage.class);
+                        Bundle bundle_supplier = new Bundle();
+                        bundle_supplier.putSerializable("carsItem", carsItem);
+                        intent_supplier.putExtras(bundle_supplier);
+                        context.startActivity(intent_supplier);
+                        break;
+                    case "ADMIN":
+                        //Work To do
+                        break;
+                }
             }
         });
     }

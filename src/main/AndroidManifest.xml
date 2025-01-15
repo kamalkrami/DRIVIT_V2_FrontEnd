@@ -6,17 +6,29 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/logo_image"
         android:label="DRIVIT"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/logo_image"
         android:supportsRtl="true"
         android:theme="@style/Theme.DRIVIT_V2_FrontEnd"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Fragment.DashBord_Supplier.EditCarPage"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.DashBord_Supplier.DetailSupplierEditCarPage"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.DashBord_Supplier.DetailSupplierHomeCarPage"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.DashBord_Supplier.DetailSupplierRentedCarPage"
+            android:exported="false" />
         <activity
             android:name=".Fragment.DashBord_Supplier.AddCarPage_Old_Activity"
             android:exported="false" />
@@ -27,7 +39,7 @@
             android:name=".Fragment.DashBord_User.UserCarDetailPage"
             android:exported="false" />
         <activity
-            android:name=".Fragment.DashBord_User.DetailCarPage"
+            android:name=".Fragment.DashBord_User.DetailUserCarPage"
             android:exported="false" />
         <activity
             android:name=".DashBoards.DashBoard_USER"

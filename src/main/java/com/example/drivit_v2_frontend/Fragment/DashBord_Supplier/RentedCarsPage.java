@@ -1,4 +1,4 @@
-package com.example.drivit_v2_frontend.Fragment.DashBord_User;
+package com.example.drivit_v2_frontend.Fragment.DashBord_Supplier;
 
 import android.os.Bundle;
 
@@ -38,22 +38,20 @@ import java.util.HashMap;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
-
-public class CarsPage extends Fragment {
+public class RentedCarsPage extends Fragment {
 
     private RecyclerView recyclerView;
     private RecylerViewAdapterCarsPage adapter;
     ArrayList<CarRental> carList;
 
-    public CarsPage() {
+    public RentedCarsPage() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View  rootView =  inflater.inflate(R.layout.fragment_cars_page, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_rented_cars_page, container, false);
 
         SessionManager sessionManager = new SessionManager(getActivity());
         HashMap<String,String> userDetails = sessionManager.getUserDetailFromSession();
@@ -68,7 +66,7 @@ public class CarsPage extends Fragment {
         String _passWord = userDetails.get(SessionManager.KEY_PASSWORD);
         String _status_user = userDetails.get(SessionManager.KEY_STATUS);
 
-        recyclerView=rootView.findViewById(R.id.rv_carpage);
+        recyclerView= rootView.findViewById(R.id.rv_car_rented_page);
         carList = new ArrayList<CarRental>();
         adapter = new RecylerViewAdapterCarsPage(requireActivity(),carList);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(),LinearLayoutManager.VERTICAL,false));
@@ -79,7 +77,7 @@ public class CarsPage extends Fragment {
         final String ip_address = getString(R.string.ip_address);
         final String baseUrl = "http://" + ip_address + ":" + port + "/CAR-RENTAL-SERVICES";
 
-        String url = baseUrl + "/carrental/" + _userID;
+        String url = baseUrl + "/carrentalSupplier/" + _userID;
 
         RequestQueue queue = Volley.newRequestQueue(requireActivity());
 
@@ -172,6 +170,7 @@ public class CarsPage extends Fragment {
                 });
 
         queue.add(jsonArrayRequest);
+
 
         return rootView;
     }

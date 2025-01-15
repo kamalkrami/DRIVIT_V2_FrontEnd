@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.DashBord_User.DetailUserCarPage">
+    tools:context=".Fragment.DashBord_Supplier.DetailSupplierEditCarPage">
 
     <TextView
         android:id="@+id/textView"
@@ -81,12 +81,13 @@
         app:layout_constraintTop_toBottomOf="@+id/car_name" />
 
     <Button
-        android:id="@+id/btn_rental"
+        android:id="@+id/btn_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/bg_button"
-        android:text="Rental"
+        android:backgroundTint="@color/green"
+        android:text="Edit Car"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +100,7 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:layout_marginTop="165dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="32dp"
         android:background="#00000000"
         android:elevation="0dp"
         android:text="Go Back ?"
@@ -109,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_rental"
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit"
         app:layout_constraintVertical_bias="0.255" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

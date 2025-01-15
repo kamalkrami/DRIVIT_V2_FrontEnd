@@ -18,6 +18,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.drivit_v2_frontend.Activitys.LoginPage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.AddCarPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.RentedCarsPage;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.SupplierCarsPage;
 import com.example.drivit_v2_frontend.Fragment.HomePage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_User.UserProfilePage;
 import com.example.drivit_v2_frontend.R;
@@ -90,13 +92,13 @@ public class DashBoard_SUPPLIER extends AppCompatActivity implements NavigationV
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new HomePage()).commit();
             text_Menu.setText("Menu Home");
         } else if (item.getItemId() == R.id.MyCars) {
-            // Work to do
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new SupplierCarsPage()).commit();
             text_Menu.setText("Menu My Cars");
         } else if (item.getItemId() == R.id.AddCar) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new AddCarPage()).commit();
             text_Menu.setText("Menu Add Car");
         } else if (item.getItemId() == R.id.RentedCars) {
-            // Work to do
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new RentedCarsPage()).commit();
             text_Menu.setText("Menu Rented Cars");
         } else if (item.getItemId() == R.id.Profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new UserProfilePage()).commit();

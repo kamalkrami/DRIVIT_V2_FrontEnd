@@ -167,19 +167,16 @@ public class LoginPage extends AppCompatActivity {
                                         JSONObject errorResponse = new JSONObject(responseBody);
                                         String message = errorResponse.getString("msg"); // Get the "msg" field from the error response
 
-                                        // Show the message in a Toast
-                                        //Toast.makeText(LoginPage.this, message, Toast.LENGTH_SHORT).show();
+                                        // Show the message in a Toast;
                                         StyleableToast.makeText(LoginPage.this, message, Toast.LENGTH_SHORT, R.style.mytoasterror).show();
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
-                                        //Toast.makeText(LoginPage.this, "Error parsing error response", Toast.LENGTH_SHORT).show();
                                         StyleableToast.makeText(LoginPage.this, "Error parsing error response", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                                     }
 
                                 } else {
                                     // If no network response, it's likely a network error
-                                    //Toast.makeText(LoginPage.this, "Network error. Please check your connection.", Toast.LENGTH_SHORT).show();
                                     StyleableToast.makeText(LoginPage.this, "Network error. Please check your connection.", Toast.LENGTH_SHORT, R.style.mytoasterror).show();
                                 }
                             });

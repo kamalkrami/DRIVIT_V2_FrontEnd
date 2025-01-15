@@ -205,7 +205,6 @@ public class DashBoard_USER extends AppCompatActivity implements NavigationView.
                     }
                 }
         );
-        // Add the request to the request queue
         requestQueue.add(jsonObjectRequest);
     }
 

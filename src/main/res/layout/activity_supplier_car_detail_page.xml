@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.DashBord_User.DetailUserCarPage">
+    tools:context=".Fragment.DashBord_Supplier.DetailSupplierRentedCarPage">
 
     <TextView
         android:id="@+id/textView"
@@ -13,7 +13,7 @@
         android:layout_height="93dp"
         android:fontFamily="@font/bungee"
         android:gravity="center"
-        android:text="Car Details"
+        android:text="Car Supplier Details"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
 
 
     <TextView
-        android:id="@+id/car_status"
+        android:id="@+id/rental_car_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -81,14 +81,28 @@
         app:layout_constraintTop_toBottomOf="@+id/car_name" />
 
     <Button
-        android:id="@+id/btn_rental"
+        android:id="@+id/btn_accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:background="@drawable/bg_button"
-        android:text="Rental"
+        android:backgroundTint="@color/green"
+        android:text="Accept"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/car_detail" />
+
+    <Button
+        android:id="@+id/btn_refuse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_button"
+        android:backgroundTint="@color/green"
+        android:text="Refuse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.723"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/car_detail" />
 
@@ -109,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_rental"
+        app:layout_constraintTop_toBottomOf="@+id/btn_refuse"
         app:layout_constraintVertical_bias="0.255" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,20 +14,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.drivit_v2_frontend.Fragment.DashBord_Supplier.DetailSupplierRentedCarPage;
 import com.example.drivit_v2_frontend.Fragment.DashBord_User.UserCarDetailPage;
 import com.example.drivit_v2_frontend.R;
+import com.example.drivit_v2_frontend.Sessions.SessionManager;
 import com.example.drivit_v2_frontend.models.CarRental;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RecylerViewAdapterCarsPage extends RecyclerView.Adapter<RecylerViewAdapterCarsPage.ViewHolder> {
 
     Context context;
     ArrayList<CarRental> arrayList;
+    SessionManager sessionManager;
 
     public RecylerViewAdapterCarsPage(Context context, ArrayList<CarRental> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        this.sessionManager = new SessionManager(this.context);
     }
 
     @NonNull
@@ -46,14 +51,32 @@ public class RecylerViewAdapterCarsPage extends RecyclerView.Adapter<RecylerView
         holder.carName.setText(CarRentalItem.getCars().getCarName());
         holder.carDetails.setText("Price :\n" + CarRentalItem.getCars().getCarPrix() + " Dhs.");
         holder.carStatus.setText(String.valueOf(CarRentalItem.getStatusRental()));
+
+        HashMap<String,String> userDetails = sessionManager.getUserDetailFromSession();
+        String _status_user = userDetails.get(SessionManager.KEY_STATUS);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, UserCarDetailPage.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("CarRentalItem",CarRentalItem);
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                switch (_status_user) {
+                    case "USER":
+                        Intent intent_user = new Intent(context, UserCarDetailPage.class);
+                        Bundle bundle_user = new Bundle();
+                        bundle_user.putSerializable("CarRentalItem", CarRentalItem);
+                        intent_user.putExtras(bundle_user);
+                        context.startActivity(intent_user);
+                        break;
+                    case "SUPPLIER":
+                        Intent intent_supplier = new Intent(context, DetailSupplierRentedCarPage.class);
+                        Bundle bundle_supplier = new Bundle();
+                        bundle_supplier.putSerializable("CarRentalItem", CarRentalItem);
+                        intent_supplier.putExtras(bundle_supplier);
+                        context.startActivity(intent_supplier);
+                        break;
+                    case "ADMIN":
+                        //Work To do
+                        break;
+                }
             }
         });
     }
